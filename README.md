@@ -1,2 +1,2 @@
 # War-Game
- Məlikməmməd ilə Div'in savaşı. HTML CSS Vue.js
+ Məlikməmməd ilə Div'in savaşı HTML CSS Vue.js
