@@ -1,0 +1,36 @@
+/**************************************************/
+
+.w-85 {
+    width: 85%
+}
+
+.m-2px {
+    margin: 2px;
+}
+
+.h-300px {
+    height: 300px;
+}
+
+.bg-gray {
+    background: rgb(226, 226, 226);
+}
+
+.bg-light-blue {
+    background: rgb(44, 253, 243);
+}
+
+.bg-light-red {
+    background: rgb(238, 129, 129);
+}
+
+/**************************************************/
+
+.health {
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    width: 100%;
+    overflow: visible;
+    transition: all .5s;
+}

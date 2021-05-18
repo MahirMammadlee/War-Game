@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Müharibə</title>
+	<link rel="icon" type="image/png" href="favicon.ico"/>
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+		integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="style.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+	<div id="game">
+		<div v-show="mainShow" class="container">
+			<div class="row">
+
+				<div class="col-6">
+					<div class="text-center mt-5 mb-4">
+						<h2>Məlikməmməd</h2>
+					</div>
+					<div class="health bg-gray text-center">
+						<div :style="yourHealthWidth" id="yourHealth"
+							class="health bg-success text-center">
+							<p>{{ yourHealth}}%</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-6">
+					<div class="text-center mt-5 mb-4">
+						<h2>Div</h2>
+					</div>
+					<div class="health bg-gray text-center">
+						<div :style="enemyHealthWidth" id="enemyHealth"
+							class="health bg-success text-center">
+							<p>{{ enemyHealth }}%</p>
+						</div>
+					</div>
+				</div>
+
+				<div
+					class="col-12 border rounded border-secondary p-4 mt-5 text-center">
+
+					<button type="button" class="btn btn-lg btn-info"
+						v-show="!startStopGame"
+						@click="startStopGame = !startStopGame">YENİ
+						OYUN</button>
+
+					<div v-show="startStopGame">
+						<button type="button" class="btn btn-lg btn-warning"
+							@click="attack()">HÜCUM ET</button>
+
+						<button type="button" class="btn btn-lg btn-danger"
+							@click="specialAttack()">GİZLİ HÜCUM</button>
+
+						<button type="button" class="btn btn-lg btn-success"
+							@click="aid()">İLK YARDIM AL</button>
+
+						<button type="button" class="btn btn-lg btn-secondary"
+							@click="surrender()">TƏSLİM OL</button>
+					</div>
+				</div>
+
+				<div v-show="wounded"
+					class="col-12 border rounded border-secondary p-4 mt-5 text-center">
+					<div class="container">
+						<div v-for="woundItem in woundList"
+							class="d-flex flex-column justify-content-center align-items-center">
+
+							<div class="w-85 mb-1">
+								<p v-show="aidShow" class="m-2px bg-success">
+									SİZƏ GƏLƏN YARDIM - {{ aidPoint }}</p>
+								<p v-show="!aidShow"
+									class="m-2px bg-light-blue">SƏNİN DÜŞMƏNƏ
+									VERDİYİN ZƏRƏR - {{woundList.you}}</p>
+								<p class="m-2px bg-light-red">DÜŞMƏNİN SƏNƏ
+									VERDİYİ ZƏRƏR - {{woundList.enemy}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div v-show="!mainShow" class="container">
+			<div
+				class="h-300px d-flex flex-column justify-content-center align-items-center">
+				<h2 class="mb-4">Bir daha gözləyirik</h2>
+				<button type="button" class="btn btn-lg btn-info"
+					@click="playAgain()">YENİDƏN OYNA</button>
+			</div>
+
+		</div>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+
+</html>
