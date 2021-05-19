@@ -10,7 +10,8 @@ new Vue({
         }],
         yourHealth: 100,
         enemyHealth: 100,
-        aidShow: false
+        aidShow: false,
+        aidPoint: 0
     },
     methods: {
         attack: function () {
